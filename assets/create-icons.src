@@ -1,0 +1,4 @@
+convert kobra.png -resize 128x128 ./koda_icon.png
+convert kobra.png -resize 180x180 ./kobra_180.png
+convert kobra.png -resize 180x180 ./kobra_transparent_180.png
+convert kobra.png -resize 120x120 ./qr_code_icon.png

@@ -1,0 +1,5 @@
+convert ./kobra.png -resize 16x16 ./favicon.png
+convert ./kobra.png -resize 192x192 ./icons/Icon-192.png
+convert ./kobra.png -resize 512x512 ./icons/Icon-512.png
+convert ./kobra.png -resize 192x192 ./icons/Icon-maskable-192.png
+convert ./kobra.png -resize 512x512 ./icons/Icon-maskable-512.png
