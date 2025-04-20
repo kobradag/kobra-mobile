@@ -30,17 +30,17 @@ class BlockExplorer with _$BlockExplorer {
 const kKobraExplorerMainnet = BlockExplorer(
   network: KobraNetwork.mainnet,
   name: 'Kobra Explorer',
-  url: 'explorer.k0bradag.com',
-  addressUrl: 'https://explorer.k0bradag.com/addresses/$kParamPattern',
-  txUrl: 'https://explorer.k0bradag.com/txs/$kParamPattern',
+  url: 'k0bradag.com/explorer',
+  addressUrl: 'https://k0bradag.com/addresses/$kParamPattern',
+  txUrl: 'https://k0bradag.com/txs/$kParamPattern',
 );
 
 const kKobraExplorerTestnet = BlockExplorer(
   network: KobraNetwork.testnet,
   name: 'Kobra Explorer',
-  url: 'explorer.k0bradag.com',
-  addressUrl: 'https://explorer.k0bradag.com/addresses/$kParamPattern',
-  txUrl: 'https://explorer.k0bradag.com/txs/$kParamPattern',
+  url: 'k0bradag.com/explorer',
+  addressUrl: 'https://k0bradag.com/addresses/$kParamPattern',
+  txUrl: 'https://k0bradag.com/txs/$kParamPattern',
 );
 
 const kKobraExplorerMainnet1 = BlockExplorer(
