@@ -1,38 +1,43 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
-// Future<num?> getKaspiumApiPrice(String fiat) async {
-//   try {
-//     final uri = Uri.https(
-//       'api.kaspium.io',
-//       '/api/v1/kobra/price',
-//       {'currencies': fiat},
-//     );
+/// Fetches price from the updated Kaspium API at https://k0bradag.com
+Future<num?> getKaspiumApiPrice(String fiat) async {
+  try {
+    final uri = Uri.https(
+      'k0bradag.com',
+      '/v1/kobra/price',
+      {'currencies': fiat},
+    );
 
-//     final response = await http.get(uri, headers: {
-//       'Accept': 'application/json',
-//       'User-Agent': 'Kaspium Wallet',
-//     });
+    final response = await http.get(uri, headers: {
+      'Accept': 'application/json',
+      'User-Agent': 'Kaspium Wallet',
+    });
 
-//     if (response.statusCode != 200) {
-//       return null;
-//     }
+    if (response.statusCode != 200) {
+      return null;
+    }
 
-//     final data = json.decode(response.body);
-//     return data[fiat] as num;
-//   } catch (_) {
-//     return null;
-//   }
-// }
+    final data = json.decode(response.body);
+    return data[fiat] as num?;
+  } catch (_) {
+    return null;
+  }
+}
 
+/// Fetches price from CoinGecko API as fallback or primary source
 Future<num?> getCoinGeckoApiPrice(String fiat) async {
   try {
     final uri = Uri.https(
       'api.coingecko.com',
       '/api/v3/simple/price',
-      {'ids': 'kobra-network', 'vs_currencies': fiat},
+      {
+        'ids': 'kobradag',
+        'vs_currencies': fiat,
+      },
     );
+
     final response = await http.get(uri, headers: {
       'Accept': 'application/json',
       'User-Agent': 'Mozilla/5.0 (KHTML, like Gecko) Chrome',
@@ -41,12 +46,14 @@ Future<num?> getCoinGeckoApiPrice(String fiat) async {
     if (response.statusCode != 200) {
       return null;
     }
+
     final data = json.decode(response.body);
     if (data is! Map) {
       throw Exception('Returned data is not a Map');
     }
-    final rates = data['kobra-network'] as Map<String, dynamic>;
-    return rates[fiat] as num;
+
+    final rates = data['kobradag'] as Map<String, dynamic>;
+    return rates[fiat] as num?;
   } catch (_) {
     return null;
   }
