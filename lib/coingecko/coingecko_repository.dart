@@ -1,3 +1,4 @@
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -5,8 +6,8 @@ import 'package:http/http.dart' as http;
 Future<num?> getKaspiumApiPrice(String fiat) async {
   try {
     final uri = Uri.https(
-      'k0bradag.com',
-      '/v1/kobra/price',
+      'api.k0bradag.com',
+      '/info/price',
       {'currencies': fiat},
     );
 
