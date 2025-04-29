@@ -65,8 +65,8 @@ class _$KobraUriParamCopyWithImpl<$Res, $Val extends KobraUriParam>
 /// @nodoc
 abstract class _$$KobraUriParamImplCopyWith<$Res>
     implements $KobraUriParamCopyWith<$Res> {
-  factory _$$KobraUriParamImplCopyWith(_$KobraUriParamImpl value,
-          $Res Function(_$KobraUriParamImpl) then) =
+  factory _$$KobraUriParamImplCopyWith(
+          _$KobraUriParamImpl value, $Res Function(_$KobraUriParamImpl) then) =
       __$$KobraUriParamImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -132,8 +132,7 @@ class _$KobraUriParamImpl extends _KobraUriParam {
   @override
   @pragma('vm:prefer-inline')
   _$$KobraUriParamImplCopyWith<_$KobraUriParamImpl> get copyWith =>
-      __$$KobraUriParamImplCopyWithImpl<_$KobraUriParamImpl>(
-          this, _$identity);
+      __$$KobraUriParamImplCopyWithImpl<_$KobraUriParamImpl>(this, _$identity);
 }
 
 abstract class _KobraUriParam extends KobraUriParam {

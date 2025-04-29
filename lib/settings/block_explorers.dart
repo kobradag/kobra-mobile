@@ -30,45 +30,44 @@ class BlockExplorer with _$BlockExplorer {
 const kKobraExplorerMainnet = BlockExplorer(
   network: KobraNetwork.mainnet,
   name: 'Kobra Explorer',
-  url: 'k0bradag.com/explorer',
+  url: 'https://k0bradag.com/explorer',
   addressUrl: 'https://k0bradag.com/addresses/$kParamPattern',
   txUrl: 'https://k0bradag.com/txs/$kParamPattern',
 );
 
-const kKobraExplorerTestnet = BlockExplorer(
+const kKobraExplorerTestnet10 = BlockExplorer(
   network: KobraNetwork.testnet,
   name: 'Kobra Explorer',
-  url: 'k0bradag.com/explorer',
+  url: 'https://k0bradag.com/explorer',
   addressUrl: 'https://k0bradag.com/addresses/$kParamPattern',
   txUrl: 'https://k0bradag.com/txs/$kParamPattern',
 );
 
-const kKobraExplorerMainnet1 = BlockExplorer(
+const kBackupExplorerMainnet = BlockExplorer(
   network: KobraNetwork.mainnet,
-  name: 'Kobra Explorer 1',
-  url: 'explorer1.k0bradag.com',
+  name: 'Backup Explorer',
+  url: 'https://explorer1.k0bradag.com',
   addressUrl: 'https://explorer1.k0bradag.com/addresses/$kParamPattern',
   txUrl: 'https://explorer1.k0bradag.com/txs/$kParamPattern',
 );
 
-const kKobraExplorerTestnet1 = BlockExplorer(
+const kBackupExplorerTestnet = BlockExplorer(
   network: KobraNetwork.testnet,
-  name: 'Kobra Explorer 1',
-  url: 'explorer1.k0bradag.com',
+  name: 'Backup Explorer',
+  url: 'https://explorer1.k0bradag.com',
   addressUrl: 'https://explorer1.k0bradag.com/addresses/$kParamPattern',
   txUrl: 'https://explorer1.k0bradag.com/txs/$kParamPattern',
 );
-
 
 const kBlockExplorersOptions = <String, List<BlockExplorer>>{
-  kKobraNetworkIdMainnet: [
+  'kobra-mainnet': [
     kKobraExplorerMainnet,
-    kKobraExplorerMainnet1,
+    kBackupExplorerMainnet,
   ],
-  kKobraNetworkIdTestnet: [
-    kKobraExplorerTestnet,
-    kKobraExplorerTestnet1,
+  'kobra-testnet': [
+    kKobraExplorerTestnet10,
+    kBackupExplorerTestnet,
   ],
-  kKobraNetworkIdDevnet: [],
-  kKobraNetworkIdSimnet: [],
+  'kobra-devnet': [],
+  'kobra-simnet': [],
 };

@@ -52,15 +52,15 @@ android {
         applicationId "kobra_mobile.kobrawallet"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 7
-        versionName "1.0.6"
+        versionCode 8
+        versionName "1.0.7"
     }
 
     signingConfigs {
         release {
             storeFile file("kobra-key.jks")
             storePassword "123456"
-            keyAlias "kobra"
+            keyAlias "kobra-key"
             keyPassword "123456"
         }
     }

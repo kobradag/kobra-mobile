@@ -14,7 +14,7 @@ _$BlockExplorerSettingsImpl _$$BlockExplorerSettingsImplFromJson(Map json) =>
           ) ??
           const {
             kKobraNetworkIdMainnet: kKobraExplorerMainnet,
-            kKobraNetworkIdTestnet: kKobraExplorerTestnet
+            kKobraNetworkIdTestnet: kKobraExplorerTestnet10
           },
     );
 

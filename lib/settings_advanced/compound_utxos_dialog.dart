@@ -80,12 +80,7 @@ class CompoundUtxosDialog extends ConsumerWidget {
     }
 
     Future<void> compound() async {
-      final authUtil = ref.read(authUtilProvider);
-      final message = l10n.compoundUtxosConfirmation;
-      final auth = await authUtil.authenticate(context, message, message);
-      if (auth) {
-        await sendCompoundTx();
-      }
+      await sendCompoundTx();
     }
 
     return AppAlertDialog(

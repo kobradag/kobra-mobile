@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../kobra/kobra.dart';
+import '../kobra/network.dart';
 import 'block_explorers.dart';
 
 part 'block_explorer_settings.freezed.dart';
@@ -12,8 +13,8 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
 
   const factory BlockExplorerSettings({
     @Default(const {
-      kKobraNetworkIdMainnet: kKobraExplorerMainnet,
-      kKobraNetworkIdTestnet: kKobraExplorerTestnet,
+      kKobraNetworkMainnet: kKobraExplorerMainnet,
+      kKobraNetworkTestnet: kKobraExplorerTestnet10,
     })
     Map<String, BlockExplorer> selection,
   }) = _BlockExplorerSettings;
@@ -22,6 +23,7 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
     return selection[networkId] ?? kKobraExplorerMainnet;
   }
 
-  factory BlockExplorerSettings.fromJson(Map<String, dynamic> json) =>
-      _$BlockExplorerSettingsFromJson(json);
+  factory BlockExplorerSettings.fromJson(Map<String, dynamic> json) {
+    return _$BlockExplorerSettingsFromJson(json);
+  }
 }

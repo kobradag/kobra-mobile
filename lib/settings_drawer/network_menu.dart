@@ -29,6 +29,8 @@ class NetworkMenu extends ConsumerWidget {
     final l10n = l10nOf(context);
 
     final viteNodeConfig = ref.watch(kobraNodeConfigProvider);
+    final networkId = ref.watch(networkIdProvider);
+    final blockExplorer = ref.watch(blockExplorerProvider);
 
     return Container(
       decoration: BoxDecoration(
@@ -125,6 +127,8 @@ class NetworkMenu extends ConsumerWidget {
   }
 
   Future<void> _explorerDialog(BuildContext context, WidgetRef ref) async {
+    final networkId = ref.read(networkIdProvider);
+    
     BlockExplorer? selection = await showAppDialog<BlockExplorer>(
         context: context,
         builder: (context) {
@@ -139,17 +143,37 @@ class NetworkMenu extends ConsumerWidget {
             children: _buildExplorerOptions(context, ref),
           );
         });
+    
     if (selection != null) {
       final notifier = ref.read(blockExplorerSettingsProvider.notifier);
-      final networkId = ref.read(networkIdProvider);
-
       notifier.updateBlockExplorer(selection, networkId: networkId);
     }
   }
 
   List<Widget> _buildExplorerOptions(BuildContext context, WidgetRef ref) {
     final networkId = ref.read(networkIdProvider);
-    final options = kBlockExplorersOptions[networkId] ?? [];
+    final effectiveNetworkId = networkId.isEmpty ? 'kobra-mainnet' : networkId;
+    final options = kBlockExplorersOptions[effectiveNetworkId] ?? [];
+    
+    if (options.isEmpty) {
+      return kBlockExplorersOptions['kobra-mainnet']!.map((value) {
+        final styles = ref.read(stylesProvider);
+        return SimpleDialogOption(
+          onPressed: () => appRouter.pop(context, withResult: value),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(value.name, style: styles.textStyleDialogOptions),
+                Text(value.url, style: styles.addressText),
+              ],
+            ),
+          ),
+        );
+      }).toList();
+    }
+    
     return options.map((value) {
       final styles = ref.read(stylesProvider);
       return SimpleDialogOption(

@@ -49,8 +49,6 @@ final balanceNotifierProvider = ChangeNotifierProvider.autoDispose((ref) {
           ? next
           : next.where((address) => !previousSet.contains(address));
 
-      final log = ref.read(loggerProvider);
-      log.d('Refreshing balances for $addresses');
       await notifier.refresh(addresses);
     },
     fireImmediately: true,
