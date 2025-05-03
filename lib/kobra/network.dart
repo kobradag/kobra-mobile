@@ -11,9 +11,9 @@ const String kKobraNetworkIdSimnet = '$kKobraNetworkSimnet';
 const String kKobraNetworkIdDevnet = '$kKobraNetworkDevnet';
 
 const int kMainnetRpcPort = 44448;
-const int kTestnetPpcPort = 42422;
-const int kSimnetRpcPort = 42424;
-const int kDevnetRpcPort = 42426;
+const int kTestnetPpcPort = 44450;
+const int kSimnetRpcPort = 44452;
+const int kDevnetRpcPort = 44454;
 
 enum KobraNetwork {
   mainnet,
