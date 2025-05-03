@@ -11,7 +11,7 @@ part 'node_types.g.dart';
 const mainnetNodeConfig = NodeConfig(
   id: '57b0fe448a279d9273bf4868ec7317a3',
   name: 'Kobra Mainnet',
-  urls: ['k0bradag.com'],
+  urls: ['mobile.k0bradag.com'],
   isSecure: false,
   network: KobraNetwork.mainnet,
 );
