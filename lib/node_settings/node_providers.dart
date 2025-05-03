@@ -27,7 +27,7 @@ final kobraNodeConfigProvider = Provider((ref) {
       config: NodeConfig(
         id: '57b0fe448a279d9273bf4868ec7317a3',
         name: 'Kobra Mainnet',
-        urls: ['k0bradag.com'],
+        urls: ['Mobile.K0bradag.com'],
         isSecure: true,
         network: KobraNetwork.mainnet,
       ),
